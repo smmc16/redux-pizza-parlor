@@ -21,7 +21,7 @@ function DisplayPizzas() {
     return (
         <div className='list'>
         {pizzaList.map(pizza => (
-            <div className='pizza'>
+            <div key={pizza.name} className='pizza'>
             <h3>{pizza.name + ' ' + pizza.price}</h3>
             <br />
             <img src={pizza.image_path} />
