@@ -1,0 +1,16 @@
+img {
+    width: 200px;
+}
+
+.pizza {
+    border: 1px solid gray;
+    border-radius: 10px;
+    width: 250px;
+    text-align: center;
+    margin: 20px;
+}
+
+.list {
+    display: flex;
+    flex-wrap: wrap;
+}
