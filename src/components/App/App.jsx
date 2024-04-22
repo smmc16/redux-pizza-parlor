@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import './App.css';
 import DisplayPizzas from '../DisplayPizzas/DisplayPizzas.jsx';
+import CustomerInfoForm from '../CustomerInfoForm/CustomerInfoForm.jsx';
 
 function App() {
 
@@ -15,7 +16,7 @@ function App() {
       <p>Pizza is great.</p>
 
       <DisplayPizzas />
-  
+      <CustomerInfoForm />
     </div>
   );
 }
