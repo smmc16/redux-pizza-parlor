@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import './CustomerInfoForm.css'
 
 function CustomerInfoForm () {
     let [name, setName] = useState('');
@@ -20,7 +21,7 @@ function CustomerInfoForm () {
                 <input placeholder="Zipcode" value={zipcode} onChange={(e) => setZipcode(e.target.value)}/>
                 <input type="radio" id="pickup" name="method" value="pickup"/>
                 <label for="pickup">Pick up</label>
-                <input type="radio" id="delivery" name="method" value="delivery"/>
+                <input type="radio" id="delivery" name="method" value="delivery" />
                 <label for="delivery">Delivery</label>
                 <input type="submit" />
             </form> 
