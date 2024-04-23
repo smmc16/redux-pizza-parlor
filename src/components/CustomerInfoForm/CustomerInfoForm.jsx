@@ -14,6 +14,8 @@ function CustomerInfoForm () {
     function handleSubmit (e) {
         e.preventDefault();
         
+        let action = { type: 'SEND_INFO', paylod: {name, address, city, zipcode, method}};
+        dispatch(action);
     }
 
     return (
