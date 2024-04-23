@@ -13,8 +13,8 @@ function CustomerInfoForm () {
 
     function handleSubmit (e) {
         e.preventDefault();
-
-        let action = {type: 'SEND_INFO', payload: {name, address, city, zipcode, method}};
+        
+        let action = { type: 'SEND_INFO', paylod: {name, address, city, zipcode, method}};
         dispatch(action);
     }
 
@@ -22,11 +22,11 @@ function CustomerInfoForm () {
         <>
             <form onSubmit={handleSubmit}>
                 <input placeholder="Name" value={name} onChange={(e) => setName(e.target.value)}/>
-                <input type="radio" id="pickup" name="method" value="Pickup" onChange={(e) => setMethod(e.target.value)}/>
+                <input type="radio" id="pickup" name="method" value="pickup" onChange={(e) => setMethod(e.target.value)}/>
                 <label htmlFor="pickup">Pick up</label>
                 <br />
                 <input placeholder="Street Address" value={address} onChange={(e) => setAddress(e.target.value)}/>
-                <input type="radio" id="delivery" name="method" value="Delivery" onChange={(e) => setMethod(e.target.value)}/>
+                <input type="radio" id="delivery" name="method" value="delivery" onChange={(e) => setMethod(e.target.value)}/>
                 <label htmlFor="delivery">Delivery</label>
                 <br />
                 <input placeholder="City" value={city} onChange={(e) => setCity(e.target.value)}/>
