@@ -10,6 +10,11 @@ img {
     margin: 20px;
 }
 
+p {
+    width: 200px;
+    display: inline-block;
+}
+
 .list {
     display: flex;
     flex-wrap: wrap;
