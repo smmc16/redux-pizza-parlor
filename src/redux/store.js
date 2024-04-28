@@ -9,9 +9,17 @@ const sendOrderInfo = (state = [], action) => {
   return state;
 }
 
+const cart = (state = [], action) => {
+  if (action.type === 'CHECKOUT') {
+    return [];
+  }
+  return state;
+}
+
 const store = createStore(
   combineReducers({
-    sendOrderInfo, // 👈 Be sure to replace this, too!
+    sendOrderInfo,
+    cart, // 👈 Be sure to replace this, too!
   }),
   applyMiddleware(logger),
 );
