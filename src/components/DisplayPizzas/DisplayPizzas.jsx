@@ -33,7 +33,7 @@ function DisplayPizzas() {
 
 
     function addPizza (pizza) {
-        let action = {type: 'SEND_PIZZA', payload: {name: pizza.name, price: pizza.price}}
+        let action = {type: 'SEND_PIZZA', payload: {id: pizza.id, name: pizza.name, price: pizza.price}}
         dispatch(action);
     }
 

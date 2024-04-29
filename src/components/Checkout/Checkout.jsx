@@ -14,7 +14,7 @@ function Checkout() {
     const handleCheckout = () => {
         console.log(checkoutList);
         axios.post('/api/order', checkoutList).then(response => {
-          dispatch({ type: 'ADD_NEW_ORDER', payload: order });
+          dispatch({ type: 'CLEAR_CART'});
           completeCheckout();
         }).catch(error => {
           console.log(error);
