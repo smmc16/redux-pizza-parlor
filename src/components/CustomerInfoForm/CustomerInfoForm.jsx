@@ -8,7 +8,7 @@ function CustomerInfoForm () {
     let dispatch = useDispatch();
     const history = useHistory();
     const pizza = useSelector(store => store.sendOrderInfo)
-    let pizzas = [{name: pizza.name, quantity: 1}]
+    let pizzas = [{id: pizza.id, name: pizza.name, quantity: 1}]
     let total = Number(pizza.price);
 
     let [name, setName] = useState('');
