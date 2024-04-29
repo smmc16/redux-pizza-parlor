@@ -5,6 +5,7 @@ import DisplayPizzas from '../DisplayPizzas/DisplayPizzas.jsx';
 import CustomerInfoForm from '../CustomerInfoForm/CustomerInfoForm.jsx';
 import { HashRouter as Router, Route, Link, useHistory } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import Checkout from '../Checkout/Checkout.jsx';
 
 function App() {
 const pizza = useSelector(store => store.sendOrderInfo);
@@ -28,6 +29,9 @@ const history = useHistory();
         </Route>
         <Route path="/info">
           <CustomerInfoForm />
+        </Route>
+        <Route path ="/checkout">
+          <Checkout />
         </Route>
       </Router>
     </div>
