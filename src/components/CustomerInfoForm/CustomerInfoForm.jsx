@@ -1,9 +1,11 @@
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import axios from 'axios';
 import './CustomerInfoForm.css'
 
 function CustomerInfoForm () {
     let dispatch = useDispatch();
+    const pizza = useSelector(store => store.sendOrderInfo)
 
     let [name, setName] = useState('');
     let [address, setAddress] = useState('');
@@ -14,8 +16,11 @@ function CustomerInfoForm () {
     function handleSubmit (e) {
         e.preventDefault();
         
-        let action = { type: 'SEND_INFO', paylod: {name, address, city, zipcode, method}};
-        dispatch(action);
+        axios.post('/api/order', {customer_name: name, street_address: address, city, zip: zipcode, type: method, price: pizza.price}).then((response) => {
+
+        }).catch(error => {
+        console.log(error);
+        })
     }
 
     return (

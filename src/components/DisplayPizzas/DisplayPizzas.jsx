@@ -1,8 +1,14 @@
 import axios from 'axios';
 import { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 import './DisplayPizzas.css';
 
 function DisplayPizzas() {
+    
+    const dispatch = useDispatch();
+    const history = useHistory();
+
     const [pizzaList, setPizzaList] = useState([]);
 
     function getPizzas() {
@@ -20,15 +26,23 @@ function DisplayPizzas() {
 
     const removePizza = (id) => {
         console.log(id);
-        axios.delete(`/api/order/${id}`).then((response) => {
-            getPizzas();
-        }).catch((error) => {
-            console.log('Error in Delete', error);
-            alert('Something went wrong');
-        })
+        let action = {type: 'CLEAR_CART'}
+        dispatch(action);
+    }
+
+
+    function addPizza (pizza) {
+        let action = {type: 'SEND_PIZZA', payload: {name: pizza.name, price: pizza.price}}
+        dispatch(action);
+    }
+
+    function checkout () {
+        history.push('/info');
     }
 
     return (
+        <>
+        <button onClick={checkout}>Checkout</button>
         <div className='list'>
         {pizzaList.map(pizza => (
             <div className='pizza' key={pizza.id}>
@@ -36,10 +50,13 @@ function DisplayPizzas() {
             <br />
             <img src={pizza.image_path} />
             <p>{pizza.description}</p>
+            <button onClick={() => addPizza(pizza)}>Add to cart</button> 
             <button onClick={() => removePizza(pizza.id)}>Remove</button>
+            
             </div>
         ))}
         </div>
+        </>
     )
 }
 
