@@ -10,9 +10,6 @@ function App() {
 const pizza = useSelector(store => store.sendOrderInfo);
 const history = useHistory();
 
-function checkout () {
-    history.push('/info');
-}
 
   return (
     <div className='App'>
@@ -23,7 +20,6 @@ function checkout () {
       <p>Pizza is great.</p>
       <br />
         <p>Order total:{pizza.price}</p>
-        <button onClick={checkout}>Checkout</button>
 
       
       <Router>

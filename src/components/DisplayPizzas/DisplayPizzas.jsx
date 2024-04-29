@@ -36,7 +36,13 @@ function DisplayPizzas() {
         dispatch(action);
     }
 
+    function checkout () {
+        history.push('/info');
+    }
+
     return (
+        <>
+        <button onClick={checkout}>Checkout</button>
         <div className='list'>
         {pizzaList.map(pizza => (
             <div className='pizza' key={pizza.id}>
@@ -50,6 +56,7 @@ function DisplayPizzas() {
             </div>
         ))}
         </div>
+        </>
     )
 }
 
