@@ -8,6 +8,7 @@ function DisplayPizzas() {
     
     const dispatch = useDispatch();
     const history = useHistory();
+    
 
     const [pizzaList, setPizzaList] = useState([]);
 
