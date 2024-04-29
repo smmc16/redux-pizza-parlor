@@ -4,11 +4,21 @@ import { useHistory } from 'react-router-dom';
 
 function Checkout() {
     const checkoutList = useSelector(store => store.cart);
+    const order = useSelector(store => store.sendOrderInfo);
     const dispatch = useDispatch();
     const history = useHistory();
   
-  
     const handleCheckout = () => {
+        console.log();
+        axios.post('/api/order', order).then(response => {
+          dispatch({ type: 'ADD_NEW_ORDER', payload: order });
+          completeCheckout();
+        }).catch(error => {
+          console.log(error);
+        })
+      };
+  
+    const completeCheckout = () => {
       let action = { type: 'CHECKOUT' };
       dispatch(action); 
       history.push('/');
