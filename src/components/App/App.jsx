@@ -9,7 +9,7 @@ import Checkout from '../Checkout/Checkout.jsx';
 
 function App() {
 const pizza = useSelector(store => store.sendOrderInfo);
-let total = pizza.map(a => a.price);
+let total = pizza.price;
 
   return (
     <div className='App'>
