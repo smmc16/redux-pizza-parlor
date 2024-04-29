@@ -1,13 +1,15 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 import './CustomerInfoForm.css'
 
 function CustomerInfoForm () {
     let dispatch = useDispatch();
+    const history = useHistory();
     const pizza = useSelector(store => store.sendOrderInfo)
     let pizzas = [{name: pizza.name, quantity: 1}]
-    let total = Number(pizza.map(a => a.price));
+    let total = Number(pizza.price);
 
     let [name, setName] = useState('');
     let [address, setAddress] = useState('');
@@ -18,11 +20,9 @@ function CustomerInfoForm () {
     function handleSubmit (e) {
         e.preventDefault();
         
-        axios.post('/api/order', {customer_name: name, street_address: address, city, zip: zipcode, type: method, total: total, pizzas: pizzas}).then((response) => {
-            console.log('success')
-        }).catch(error => {
-        console.log(error);
-        })
+        let action = {type: 'SEND_INFO', payload: {customer_name: name, street_address: address, city, zip: zipcode, type: method, total, pizzas}};
+        dispatch(action);
+        history.push('/checkout')
     }
 
     return (
