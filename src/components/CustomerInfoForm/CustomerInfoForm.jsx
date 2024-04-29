@@ -6,6 +6,8 @@ import './CustomerInfoForm.css'
 function CustomerInfoForm () {
     let dispatch = useDispatch();
     const pizza = useSelector(store => store.sendOrderInfo)
+    let pizzas = [{name: pizza.name, quantity: 1}]
+    let total = Number(pizza.map(a => a.price));
 
     let [name, setName] = useState('');
     let [address, setAddress] = useState('');
@@ -16,8 +18,8 @@ function CustomerInfoForm () {
     function handleSubmit (e) {
         e.preventDefault();
         
-        axios.post('/api/order', {customer_name: name, street_address: address, city, zip: zipcode, type: method, price: pizza.price}).then((response) => {
-
+        axios.post('/api/order', {customer_name: name, street_address: address, city, zip: zipcode, type: method, total: total, pizzas: pizzas}).then((response) => {
+            console.log('success')
         }).catch(error => {
         console.log(error);
         })

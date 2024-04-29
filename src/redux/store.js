@@ -4,7 +4,7 @@ import logger from 'redux-logger';
 // Be sure to replace this reducer! 🙂
 const sendOrderInfo = (state = [], action) => {
   if (action.type === 'SEND_PIZZA') {
-    return action.payload;
+    return [action.payload];
   } else if (action.type === 'CLEAR_CART') {
     return [];
   }

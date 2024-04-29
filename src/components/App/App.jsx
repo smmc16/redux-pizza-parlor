@@ -8,8 +8,7 @@ import { useSelector } from 'react-redux';
 
 function App() {
 const pizza = useSelector(store => store.sendOrderInfo);
-const history = useHistory();
-
+let total = pizza.map(a => a.price);
 
   return (
     <div className='App'>
@@ -19,7 +18,7 @@ const history = useHistory();
       <img src='images/pizza_photo.png' />
       <p>Pizza is great.</p>
       <br />
-        <p>Order total:{pizza.price}</p>
+        <p>Order total:{total}</p>
 
       
       <Router>
