@@ -1,21 +1,42 @@
-img {
-    width: 200px;
+.checkout-button {
+  display: flex;
+  justify-content: flex-end;
+  padding: 10px;
 }
 
-.pizza {
-    border: 1px solid gray;
-    border-radius: 10px;
-    width: 250px;
-    text-align: center;
-    margin: 20px;
-}
-
-p {
-    width: 200px;
-    display: inline-block;
-}
 
 .list {
     display: flex;
     flex-wrap: wrap;
-}
+    justify-content: center;
+  }
+  
+  .pizza {
+    display: flex;
+    flex-direction: column; 
+    width: 250px;
+    height: 550px;
+    margin: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .pizzaContent {
+    flex: 1;
+    padding: 20px;
+  }
+  
+  .pizza img {
+    width: 100%;
+    height: 50%;
+    object-fit: cover;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+  }
+  
+  .actions {
+    padding: 0 20px 20px 20px;
+  }
+  
+  
+  
