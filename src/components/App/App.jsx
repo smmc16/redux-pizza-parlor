@@ -6,6 +6,7 @@ import CustomerInfoForm from '../CustomerInfoForm/CustomerInfoForm.jsx';
 import { HashRouter as Router, Route, Link, useHistory } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import Checkout from '../Checkout/Checkout.jsx';
+import Admin from '../Admin/Admin.jsx';
 
 function App() {
 const pizza = useSelector(store => store.sendOrderInfo);
@@ -31,6 +32,9 @@ let total = pizza.price;
         </Route>
         <Route path ="/checkout">
           <Checkout />
+        </Route>
+        <Route path ="/admin">
+          <Admin />
         </Route>
       </Router>
     </div>

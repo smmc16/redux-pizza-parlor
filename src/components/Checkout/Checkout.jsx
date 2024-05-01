@@ -2,6 +2,7 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import axios from 'axios';
+import './Checkout.css';
 
 function Checkout() {
     const checkoutList = useSelector(store => store.cart);
@@ -37,12 +38,10 @@ function Checkout() {
         <p>{checkoutList.city}</p>
         <br />
         <p>{checkoutList.zip}</p>
-        
-        <ul>
+        <br />
+        <p> For {checkoutList.type}</p>
+        <li>{order.name} - {order.price}</li>
           
-            <li>{order.name} - {order.price}</li>
-          
-          </ul>
         <button onClick={handleCheckout}>Checkout</button>
       </div>
     );

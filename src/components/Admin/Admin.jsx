@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-
+import './Admin.css';
 
 
 
@@ -35,10 +35,10 @@ useEffect(() => {
       <tbody>
         {orders.map(order => (<>
         <tr key={order.id}>
-          <td>{response.name}</td>
-          <td>{response.time}</td>
-          <td>{response.type}</td>
-          <td>{response.total}</td>
+          <td>{order.customer_name}</td>
+          <td>{order.time}</td>
+          <td>{order.type}</td>
+          <td>{order.total}</td>
           </tr></>
         ))}
       </tbody>
